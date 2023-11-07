@@ -10,7 +10,7 @@ a {
 }
 img {
   width: 100%;
-  height: auto; /* comentar sobre depois */
+  height: auto; /*comentar sobre depois*/ 
 }
 :root {
   --header-height: 3.5rem;
@@ -70,6 +70,7 @@ h1 {
 }
 /* LAYOUT ============= */
 .container {
+  /* width: 100%; */ /* isso dá b.o em scroll*/
   /* width: 100%; */ /* isso dá b.o em scroll*/
   margin-left: 1.5rem;
   margin-right: 1.5rem;

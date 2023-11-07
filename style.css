@@ -13,6 +13,7 @@ img {
   height: auto; // comentar sobre depois
 }
 :root {
+  --header-height: 3.5rem;
   --hue: 159;
   --base-color: hsl(var(--hue) 36% 57%);
   --base-color-second: hsl(var(--hue) 65% 88%);
@@ -69,8 +70,10 @@ h1 {
 }
 /* LAYOUT ============= */
 .container {
+  /* width: 100%; */ // isso dá b.o em scroll
   margin-left: 1.5rem;
   margin-right: 1.5rem;
+  
 }
 
 .grid {
@@ -84,23 +87,22 @@ h1 {
 
 #header {
   border-bottom: 1px solid #e4e4e4 ;
-  margin-bottom: 2rem;
+  /* margin-bottom: 2rem; */
   display: flex;
-
+  
+  width: 100%; // interessante
   position: fixed; // nao fiz isso, mas faz sentido. acho que toda nav precisa ser fixed
   top: 0;
   left: 0;
   z-index: 100;
   background-color: var(--body-color);
-  width: 100%; // interessante
 }
 nav {
   height: var(--header-height); //3.5rem
   display: flex;
-  justify-content: space-between;
-  width: 100%; // a div pai tem largura de 100% e a filha tbm, porque as duas precisam ter. a do pai não é suficiente?
   align-items: center;
-  /* color: --(text-color); */
+  justify-content: space-between;
+  width: 100%; // isa
 }
 
 .logo {
@@ -113,7 +115,7 @@ nav {
 }
 
 main {
-  margin-top: var(--header-height);
+  /* margin-top: var(--header-height); */
 }
 
 /* HOME ============= */
@@ -127,7 +129,6 @@ main {
 
 #home .image {
   position: relative;
-  right: 2.93rem;
 }
 
 #home .image::before {
@@ -138,8 +139,8 @@ main {
   position: absolute;
   top: -16.8%;
   left: 16.7%;
-  width: 24.5rem;
-  height: 16.3rem;
+  /* width: 24.5rem;
+  height: 16.3rem; */
   z-index: 0;
   border-radius: 0.25rem;
 }
@@ -149,14 +150,6 @@ main {
   border-radius: 0.25rem;
 
 }
-/* .content {
-  width: 100%;
-
-  justify-content: center;
-  align-items: center;
-
-} */
-
 .texts {
   display: flex;
   flex-direction: column;
@@ -166,10 +159,11 @@ main {
 }
 
 .texts h1 {
-  padding-bottom: 0.7rem;
+  margin-bottom: 0.7rem;
 }
 
 .texts p {
-  padding-bottom: 1.5rem;
+  margin-bottom: 1.5rem;
+  max-width: 100%;
 }
 

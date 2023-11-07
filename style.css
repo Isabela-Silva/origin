@@ -10,11 +10,11 @@ a {
 }
 img {
   width: 100%;
-  height: auto; // comentar sobre depois
+  height: auto; /* comentar sobre depois */
 }
 :root {
   --header-height: 3.5rem;
-  --hue: 159;
+  --hue: 330;
   --base-color: hsl(var(--hue) 36% 57%);
   --base-color-second: hsl(var(--hue) 65% 88%);
   --base-color-alt: hsl(var(--hue) 57% 53%);
@@ -40,19 +40,19 @@ h1 {
 
 }
 .button {
-  background-color: var(--base-color);
+  background-color: var(--base-color); 
   color: var(--text-color-light);
 
   display: flex;
 
   height: 3.5rem;
-  align-items: center; // apenas com isso deveria funcionar
+  align-items: center; /* apenas com isso deveria funcionar */
   text-align: center;
   width: 13.6rem;
   padding-left: 2rem; 
   padding-right: 2rem; 
   border-radius: 0.25rem;
-  margin: 0 auto; // acho que foi gambiarra isso aqui
+  margin: 0 auto; /*acho que foi gambiarra isso aqui*/
   font: 500 1rem "DM Sans", sans serif;
   transition: background 1s;
 }
@@ -70,7 +70,7 @@ h1 {
 }
 /* LAYOUT ============= */
 .container {
-  /* width: 100%; */ // isso dá b.o em scroll
+  /* width: 100%; */ /* isso dá b.o em scroll*/
   margin-left: 1.5rem;
   margin-right: 1.5rem;
   
@@ -90,19 +90,19 @@ h1 {
   /* margin-bottom: 2rem; */
   display: flex;
   
-  width: 100%; // interessante
-  position: fixed; // nao fiz isso, mas faz sentido. acho que toda nav precisa ser fixed
+  width: 100%; /* interessante*/
+  position: fixed; 
   top: 0;
   left: 0;
   z-index: 100;
   background-color: var(--body-color);
 }
 nav {
-  height: var(--header-height); //3.5rem
+  height: var(--header-height); 
   display: flex;
   align-items: center;
   justify-content: space-between;
-  width: 100%; // isa
+  width: 100%; /* isa */
 }
 
 .logo {
@@ -115,12 +115,12 @@ nav {
 }
 
 main {
-  /* margin-top: var(--header-height); */
+  margin-top: var(--header-height);
 }
 
 /* HOME ============= */
 #home {
-  overflow: hidden; //era pra eu colocar mas deu  
+  overflow: hidden; 
   
 }
 #home .container {
@@ -139,8 +139,6 @@ main {
   position: absolute;
   top: -16.8%;
   left: 16.7%;
-  /* width: 24.5rem;
-  height: 16.3rem; */
   z-index: 0;
   border-radius: 0.25rem;
 }
@@ -164,6 +162,5 @@ main {
 
 .texts p {
   margin-bottom: 1.5rem;
-  max-width: 100%;
 }
 

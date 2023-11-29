@@ -14,6 +14,7 @@ img {
 }
 :root {
   --header-height: 3.5rem;
+
   --hue: 330;
   --base-color: hsl(var(--hue) 36% 57%);
   --base-color-second: hsl(var(--hue) 65% 88%);
@@ -22,19 +23,26 @@ img {
   --text-color: hsl(0 0% 46%);
   --text-color-light: hsl(0 0% 98%);
   --body-color: hsl(0 0% 98%);
+
+/* fonts */
+  --title-font-size: 1.875rem;
+  --subtitle-font-size: 1rem;
+
+  --title-font: 'Poppins', sans-serif;
+  --body-font: 'DM Sans', sans-serif;
 }
 html {
   scroll-behavior: smooth;
 }
 
 body {
-  font: 400 1rem 'DM Sans', sans-serif;
+  font: 400 1rem var(--title-font);
   color: var(--text-color);
   background: var(--body-color);
   -webkit-font-smoothing: antialiased;
 }
 .title {
-  font: 700 1.875rem 'Poppins', sans-serif;
+  font: 700 var(--title-font-size) var(--body-font);
   color: var(--title-color);
   -webkit-font-smoothing: auto;
 
@@ -53,7 +61,7 @@ body {
   padding-right: 2rem; 
   border-radius: 0.25rem;
   margin: 0 auto; 
-  font: 500 1rem "DM Sans", sans serif;
+  font: 500 1rem  var(--body-font);
   transition: background 1s;
 }
 .button:hover {
@@ -79,24 +87,23 @@ body {
 }
 /* LAYOUT ============= */
 .container {
-  /* width: 100%; */ /* isso dá b.o em scroll*/
-  /* width: 100%; */ /* isso dá b.o em scroll*/
   margin-left: 1.5rem;
   margin-right: 1.5rem;
-  /* margin: 0; */
-  
 }
 
 .grid {
   display: grid;
   gap: 2rem;
-
 }
 .section {
-  padding: 5rem 0;
+  padding: calc(5rem + var(--header-height)) 0;
 }
 .section .title {
   margin-bottom: 1rem;
+}
+
+.section .subtitle {
+  font-size: var(--subtitle-font-size); 
 }
 .section header {
   margin-bottom: 2.5rem;
@@ -144,8 +151,11 @@ nav ul li a {
 }
 nav ul li a:hover {
  color: var(--base-color);
+ font-weight: bold;
+
 }
-nav ul li a::after {
+nav ul li a::after
+ {
   content: '';
   width: 0%;
   height: 2px;
@@ -160,6 +170,10 @@ nav ul li a::after {
 nav ul li a:hover::after {
   width: 100%;
 }
+
+/* nav ul li a.active::after {
+  width: 100%;
+} */
 nav .menu {
   opacity: 0;
   visibility: hidden;
@@ -208,7 +222,7 @@ nav.show div.ph-x {
 }
 
 .logo {
-  font: 700 1.31rem 'Poppins', sans-serif;
+  font: 700 1.31rem  var(--title-font);
   color: var(--title-color);
 
 }
@@ -216,9 +230,7 @@ nav.show div.ph-x {
   color: var(--base-color);
 }
 
-main {
-  margin-top: var(--header-height);
-}
+
 
 /* HOME ============= */
 #home {
@@ -256,7 +268,6 @@ main {
   margin-left: 1.5rem;
   margin-right: 1.5rem;
   text-align: center;
-  /* margin: 0; */
 }
 
 #home .texts h2 {
@@ -300,6 +311,8 @@ main {
   margin-left: 1.5rem;
   margin-right: 1.5rem;
 }
+
+/* services */
 #services.cards.grid {
   gap: 1.5rem;
 
@@ -317,7 +330,7 @@ main {
 }
 #services .card img {
   width: 20%;
-  padding-bottom: 1.5rem; /*de onde veio isso?*/
+  padding-bottom: 1.5rem; 
 }
 
 #services .card h3 {
@@ -325,6 +338,7 @@ main {
 }
 
 /* testimonials */
+
 
 .testimonial blockquote {
   padding: 2rem;
@@ -363,6 +377,10 @@ main {
   align-items: center;
   gap: 0.5rem;
   padding-top: 1.5rem;
+}
+.swiper-slide {
+  height: auto;
+  padding: 4rem 1rem;
 }
 
 .swiper-pagination-bullet-active {
@@ -424,12 +442,164 @@ footer .brand p{
   color: var(--text-color-light);
 
 }
+footer .social a {
+  transition: 0.3s;
+  display: inline-block;
+}
+
+footer .social a:hover {
+  transform: translateY(-8px);
+}
 
 footer .social {
-  display: flex;
-  gap: 2rem;
+  grid-auto-flow: column;
+  width: fit-content;
 }
 footer .social i {
   font-size: 1.5rem;
   color: var(--text-color-light);
+}
+
+.back-to-top {
+  position: fixed;
+
+  bottom: 1rem;
+  right: 1rem;
+
+  padding: 0.5rem;
+  background: var(--base-color);
+  color: var(--text-color-light);
+  font-size: 1.5rem;
+  clip-path: circle();
+  liner-height: 0;
+
+  visibility: hidden;
+  opacity: 0;
+
+  transition: 0.3s; 
+  transform: translateY(100%);
+
+}
+
+.back-to-top.show {
+  visibility: visible;
+  opacity: 1;
+  transform: translateY(0);
+}
+/* ============================================================================= */
+@media (min-width: 1200px) {
+  .container {
+    max-width: 1120px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .section {
+    padding: 10rem 0;
+  }
+
+  .section header {
+    max-width: 32rem; /*é apenas da header! */
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .button {
+    height: 3.125rem;
+  }
+
+  nav .menu {
+    opacity: 1;
+    visibility: visible;
+    top: 0;
+  }
+  nav .menu ul {
+    display: flex;
+    gap: 2rem;    
+    flex-direction: row;
+  }
+  nav .menu ul li a.title {
+    font: 400 1rem var(--body-font);
+  }
+
+  nav.show .menu ul {
+    display: none;
+  }
+  nav #btnOpen {
+    display: none;
+  }
+  /* layout */
+  main {
+    margin-top: var(--header-height);
+  }
+  /* home */
+  #home .container {
+    grid-auto-flow: column;
+    justify-content: space-between;
+    margin: 0 auto;
+    gap: 10rem;
+  }
+  #home .image {
+    order: 1;
+  }
+  #home .texts {
+    order: 0;
+    max-width: 24rem;
+    text-align: left;
+  }
+  #home .button {
+    margin: 0;
+  }
+  /* about */
+
+  #about .container {
+    grid-auto-flow: column;
+    gap: 4rem;
+    margin: 0 auto;
+
+  }
+  /* services */
+  .cards {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+  .card {
+    padding-left: 3rem;
+    padding-right: 3rem;
+  }
+  /* testimonials */
+  
+  .swiper {
+    margin: 0;
+  }
+  .swiper-wrapper {
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .swiper-pagination {
+    position: static;
+  }
+
+  /* contact */
+  #contact .container {
+    grid-auto-flow: column;
+    align-items: center;
+  }
+  #contact .texts {
+    max-width: 25rem;
+  }
+  /* footer */
+
+  footer .container {
+    padding: 3.75rem 0;
+    grid-auto-flow: column;
+    align-items: center;
+    justify-content: space-between;
+  }
+ 
+}
+@media (min-width: 992px) {
+  :root {
+    --title-font-size: 2.25rem;
+    --subtitle-font-size: 1.125rem;
+  }
 }
